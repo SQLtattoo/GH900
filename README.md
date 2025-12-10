@@ -3,7 +3,7 @@
 Welcome to the **GH-900** workspace! This repository contains helpful resources and cheat sheets for Markdown and search operations, as well as official exercises for the GH-900 course.
 
 ## Contents
-- **[Git-CheatSheet.md](./Git-CheatSheet.md)**: Tutorial and reference for Git commands and workflows.
+- **[Git-Tutorial.md](./Git-Tutorial.md)**: Tutorial and reference for Git commands and workflows.
 - **[Markdown-CheatSheet.md](./Markdown-CheatSheet.md)**: Quick reference for Markdown syntax and formatting.
 - **[Search-CheatSheet.md](./Search-CheatSheet.md)**: Handy guide for search techniques and commands.
 - **[Official GH-900 exercises.md](./Official%20GH-900%20exercises.md)**: The official curriculum together with set of exercises for the GH-900 course.
@@ -17,7 +17,7 @@ Welcome to the **GH-900** workspace! This repository contains helpful resources 
 
 1. Clone this repository to your local machine:
    ```pwsh
-   git clone https://github.com/<yourUsername>/GH-900.git
+   git clone https://github.com/<yourUsername>/GH900.git
    ```
 2. Open the files in your preferred editor (e.g., VS Code) and start exploring!
 
