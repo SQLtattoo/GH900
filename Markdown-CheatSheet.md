@@ -12,50 +12,40 @@ Used in:
 ---
 
 ## 📌 Headings
-```markdown
 # Project Title
 ## Section
 ### Subsection
-```
+
 
 ---
 
 ## ✍️ Emphasis
-```markdown
 *italic*   _also italic_
 **bold**   __also bold__
 ***bold italic***
 ~~strikethrough~~
-```
 
 ---
 
 ## 📋 Lists
 **Unordered:**
-```markdown
 - Item 1
 - Item 2
   - Subitem
-```
 
 **Ordered:**
-```markdown
 1. Step one
 2. Step two
-```
 
 **Checkboxes:**
-```markdown
 - [x] Done
 - [ ] To do
-```
 
 ---
 
 ## 🔗 Links
-```markdown
 [GitHub](https://github.com)
-```
+
 
 Or reference style:
 ```markdown
@@ -88,22 +78,21 @@ Local example:
 Inline: `code`
 
 Multiline:
-<pre>
 ```python
 print("Hello, Mars!")
+print("Exploring space with Team Orion.")
 ```
-</pre>
+
 
 ---
 
 ## 📊 Tables
-```markdown
 | Planet | Distance (AU) | Discovered |
 |--------|----------------|-------------|
 | Mercury | 0.39 | Ancient |
 | Venus | 0.72 | Ancient |
 | Earth | 1.00 | — |
-```
+
 
 ---
 
