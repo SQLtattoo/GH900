@@ -16,6 +16,14 @@ Welcome to the **GH-900 GitHub Foundations** course repository! This comprehensi
 
 - **[Official GH-900 exercises.md](./Official%20GH-900%20exercises.md)**: Official curriculum and structured exercises for the GH-900 certification course
 
+- **[Codespaces-Dotfiles-Demo.md](./Codespaces-Dotfiles-Demo.md)**: Complete guide to personalizing GitHub Codespaces with dotfiles
+  - **What are Dotfiles** - Configuration files for personalizing your development environment
+  - **Create Dotfiles Repository** - Step-by-step setup with `.gitconfig`, `.bash_aliases`, and custom shell settings
+  - **Automatic Installation** - Configure GitHub to automatically apply your dotfiles to every Codespace
+  - **Advanced Configurations** - VS Code settings, environment variables, and custom scripts
+  - **Troubleshooting Guide** - Solutions to common dotfiles issues
+  - **Demo Scripts** - 5-minute and 15-minute teaching demos
+
 ### Quick Reference Guides
 
 - **[Markdown-CheatSheet.md](./Markdown-CheatSheet.md)**: Quick reference for Markdown syntax and formatting
