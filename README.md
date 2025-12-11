@@ -16,6 +16,15 @@ Welcome to the **GH-900 GitHub Foundations** course repository! This comprehensi
 
 - **[Official GH-900 exercises.md](./Official%20GH-900%20exercises.md)**: Official curriculum and structured exercises for the GH-900 certification course
 
+- **[GitHub-Security-Demo.md](./GitHub-Security-Demo.md)**: Comprehensive guide to GitHub Security features
+  - **Security Policies** - Create SECURITY.md files to define vulnerability reporting processes
+  - **Dependabot Alerts** - Automatically detect and fix vulnerable dependencies
+  - **Security Advisories** - Privately manage and disclose security vulnerabilities
+  - **Code Scanning** - Use CodeQL to find security issues and coding errors
+  - **Secret Scanning** - Prevent accidentally committing API keys and passwords
+  - **Security Workflows** - Complete security-first development practices
+  - Hands-on exercises with intentional vulnerabilities for learning
+
 - **[Codespaces-Dotfiles-Demo.md](./Codespaces-Dotfiles-Demo.md)**: Complete guide to personalizing GitHub Codespaces with dotfiles
   - **What are Dotfiles** - Configuration files for personalizing your development environment
   - **Create Dotfiles Repository** - Step-by-step setup with `.gitconfig`, `.bash_aliases`, and custom shell settings
