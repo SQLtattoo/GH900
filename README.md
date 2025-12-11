@@ -23,6 +23,15 @@ Welcome to the **GH-900 GitHub Foundations** course repository! This comprehensi
   - **Security Workflows** - Complete security-first development practices
   - Hands-on exercises with intentional vulnerabilities for learning
 
+- **[GitHub-Copilot-Live-Demo.md](./GitHub-Copilot-Live-Demo.md)**: ⚡ Quick live classroom demo for showcasing GitHub Copilot
+  - **10-Minute Demo Script** - Fast-paced live demonstration with talking points
+  - **5-Minute Version** - Streamlined version for tight schedules
+  - **Code Completion** - Show AI-powered autocomplete magic
+  - **Copilot Chat** - Demonstrate /explain, /fix, /tests commands
+  - **Real-World Scenario** - Build a feature live with Copilot
+  - **Pro Tips** - Best practices for students
+  - **Student Handout** - Quick reference card with shortcuts and commands
+
 - **[Codespaces-Dotfiles-Demo.md](./Codespaces-Dotfiles-Demo.md)**: Complete guide to personalizing GitHub Codespaces with dotfiles
   - **What are Dotfiles** - Configuration files for personalizing your development environment
   - **Create Dotfiles Repository** - Step-by-step setup with `.gitconfig`, `.bash_aliases`, and custom shell settings
