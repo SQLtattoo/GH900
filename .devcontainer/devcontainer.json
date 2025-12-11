@@ -4,7 +4,5 @@
   
   "features": {
     "ghcr.io/devcontainers/features/git:1": {}
-  },
-  
-  "postCreateCommand": "bash ~/dotfiles/install.sh && source ~/.bashrc"
+  }
 }
