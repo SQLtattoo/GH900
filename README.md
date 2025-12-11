@@ -77,19 +77,24 @@ Welcome to the **GH-900 GitHub Foundations** course repository! This comprehensi
 
 ## Getting Started
 
-1. Clone this repository to your local machine:
-   ```pwsh
-   git clone https://github.com/<yourUsername>/GH900.git
-   ```
-2. Open the files in your preferred editor (e.g., VS Code) and start exploring!
+Open any of the tutorial files in your preferred editor and start learning! All exercises include:
+- Step-by-step commands you can copy-paste
+- Expected outputs so you know it's working
+- Troubleshooting tips for common issues
 
-## Contributing
+## 🤝 Contributing
 
-Contributions are welcome! Feel free to fork and submit pull requests to add new cheat sheets, improve documentation, or update exercises.
+We welcome contributions! Please see our [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines on:
+- Reporting bugs or suggesting improvements
+- Submitting pull requests
+- Exercise structure and style standards
+- Testing requirements
 
-## License
+This repository follows the [Contributor Covenant Code of Conduct](./CODE_OF_CONDUCT.md).
 
-This repository is provided for educational purposes. Please check individual files for any specific licensing information.
+## 📄 License
+
+This project is licensed under the MIT License with additional terms for educational use. See [LICENSE](./LICENSE) for details.
 
 ---
 
