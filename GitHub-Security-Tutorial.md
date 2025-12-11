@@ -1,4 +1,4 @@
-# GitHub Security Features - Demo Guide
+# GitHub Security Features - Tutorial Guide
 
 Welcome to the GitHub Security hands-on demo! This guide will walk you through GitHub's security features using practical examples.
 

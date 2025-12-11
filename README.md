@@ -6,7 +6,7 @@ Welcome to the **GH-900 GitHub Foundations** course repository! This comprehensi
 
 ### Core Learning Materials
 
-- **[Git-CheatSheet.md](./Git-CheatSheet.md)**: Complete hands-on demo project for GitHub Foundations
+- **[Git-Tutorial.md](./Git-Tutorial.md)**: Complete hands-on demo project for GitHub Foundations
   - **Part 1: Git Basics** - Installation, configuration, local repository setup, essential commands (`git init`, `git add`, `git commit`, `git status`, `git diff`)
   - **Part 2: Repository Management** - Creating repositories, managing files, commits, branches, merging, and resolving conflicts
   - **Part 3: Collaboration Features** - Pull requests, issues, discussions, notifications, and code reviews
@@ -14,9 +14,7 @@ Welcome to the **GH-900 GitHub Foundations** course repository! This comprehensi
   - **Additional Exercises** - Git history, undoing changes, stashing, and GitHub CLI
   - Built around a practical **Task Manager** application demo
 
-- **[Official GH-900 exercises.md](./Official%20GH-900%20exercises.md)**: Official curriculum and structured exercises for the GH-900 certification course
-
-- **[GitHub-Security-Demo.md](./GitHub-Security-Demo.md)**: Comprehensive guide to GitHub Security features
+- **[GitHub-Security-Tutorial.md](./GitHub-Security-Tutorial.md)**: Comprehensive guide to GitHub Security features
   - **Security Policies** - Create SECURITY.md files to define vulnerability reporting processes
   - **Dependabot Alerts** - Automatically detect and fix vulnerable dependencies
   - **Security Advisories** - Privately manage and disclose security vulnerabilities
@@ -32,6 +30,8 @@ Welcome to the **GH-900 GitHub Foundations** course repository! This comprehensi
   - **Advanced Configurations** - VS Code settings, environment variables, and custom scripts
   - **Troubleshooting Guide** - Solutions to common dotfiles issues
   - **Demo Scripts** - 5-minute and 15-minute teaching demos
+
+- **[Official GH-900 exercises.md](./Official%20GH-900%20exercises.md)**: Official curriculum and structured exercises for the GH-900 certification course
 
 ### Quick Reference Guides
 
