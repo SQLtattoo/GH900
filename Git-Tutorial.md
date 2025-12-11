@@ -1080,7 +1080,398 @@ git stash apply
 
 ---
 
-### Exercise 4.4: GitHub CLI (Optional)
+### Exercise 4.4: Git Pull - Fetching and Merging Remote Changes
+
+**Objective**: Understand how to sync your local repository with remote changes using `git pull`.
+
+#### What is Git Pull?
+
+`git pull` is a combination of two commands:
+1. `git fetch` - Downloads changes from remote repository
+2. `git merge` - Merges those changes into your current branch
+
+#### Basic Pull Command
+
+```bash
+git pull origin main
+```
+
+**What happens**:
+- Fetches latest changes from `origin/main`
+- Merges them into your current branch
+- Updates your working directory
+
+#### Pull with Rebase
+
+```bash
+git pull --rebase origin main
+```
+
+**What's different**:
+- Fetches changes like normal pull
+- Instead of merging, it **rebases** your commits on top of the fetched changes
+- Creates a cleaner, linear history
+
+#### Pull Options Explained
+
+**Option 1: Default Pull (Merge Strategy)**
+```bash
+git pull
+```
+- Creates a merge commit if there are changes
+- Preserves complete history
+- Shows where branches diverged
+
+**Option 2: Pull with Fast-Forward Only**
+```bash
+git pull --ff-only
+```
+- Only updates if it can fast-forward
+- Fails if divergent changes exist
+- Prevents unwanted merge commits
+- Good for keeping main branch clean
+
+**Option 3: Pull without Commit**
+```bash
+git pull --no-commit
+```
+- Fetches and merges but doesn't create merge commit
+- Lets you review changes before committing
+- Useful for careful code reviews
+
+**Option 4: Pull from Specific Branch**
+```bash
+git pull origin feature/new-ui
+```
+- Pulls from a specific branch instead of default
+- Useful for reviewing teammate's work
+
+#### Practical Exercise: Working with Git Pull
+
+**Scenario**: Simulate a team environment where remote changes need to be pulled.
+
+**Step 1**: Create a change on GitHub (simulating a teammate's commit)
+
+1. Go to your repository on GitHub
+2. Click "Add file" → "Create new file"
+3. Name it `CONTRIBUTING.md`
+4. Add content:
+   ```markdown
+   # Contributing Guidelines
+   
+   ## How to Contribute
+   1. Fork the repository
+   2. Create a feature branch
+   3. Submit a pull request
+   ```
+5. Commit with message: "Add contributing guidelines"
+
+**Step 2**: Check your local repository status
+```bash
+git status
+```
+
+**Step 3**: Fetch to see what's different
+```bash
+git fetch origin
+```
+
+**Step 4**: View differences between local and remote
+```bash
+git diff origin/main
+```
+**What to observe**: The changes made on GitHub that aren't in your local copy
+
+**Step 5**: Pull the changes
+```bash
+git pull origin main
+```
+
+**Expected Output**:
+```
+Updating abc1234..def5678
+Fast-forward
+ CONTRIBUTING.md | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+ create mode 100644 CONTRIBUTING.md
+```
+
+**Step 6**: Verify changes are now local
+```bash
+cat CONTRIBUTING.md
+# or
+git log --oneline -3
+```
+
+#### When to Use Each Pull Strategy
+
+**Use `git pull` (merge):**
+- When you want to preserve all history
+- For feature branches
+- When working with a team and want to show collaboration
+
+**Use `git pull --rebase`:**
+- To keep a linear history
+- Before pushing your commits
+- To avoid "merge bubble" commits
+- When your changes don't conflict with remote
+
+**Use `git pull --ff-only`:**
+- On the main/production branch
+- When you want to ensure you're up-to-date without creating merges
+- To maintain a clean commit history
+
+---
+
+### Exercise 4.5: Git Rebase - Rewriting History
+
+**Objective**: Learn to use `git rebase` to create a cleaner commit history and resolve conflicts.
+
+#### What is Git Rebase?
+
+Rebasing takes your commits and replays them on top of another branch's commits. Think of it as "moving your branch to start from a different point."
+
+#### Basic Rebase
+
+```bash
+# Move your current branch on top of main
+git rebase main
+```
+
+**What happens**:
+1. Git finds the common ancestor of your branch and main
+2. Saves your commits temporarily
+3. Updates your branch to match main
+4. Replays your commits one by one on top
+
+#### Interactive Rebase (`git rebase -i`)
+
+**Most powerful feature** - lets you edit commit history before sharing.
+
+```bash
+# Rebase last 3 commits interactively
+git rebase -i HEAD~3
+
+# Rebase all commits since branching from main
+git rebase -i main
+```
+
+**Editor opens with options**:
+```
+pick a1b2c3d Add task filtering
+pick d4e5f6g Fix typo in filter
+pick h7i8j9k Update documentation
+
+# Commands:
+# p, pick = use commit as-is
+# r, reword = use commit, but edit message
+# e, edit = use commit, but stop to amend
+# s, squash = combine with previous commit, keep both messages
+# f, fixup = combine with previous commit, discard this message
+# d, drop = remove commit entirely
+```
+
+#### Practical Exercise: Interactive Rebase
+
+**Step 1**: Create a messy commit history
+```bash
+git checkout -b feature/add-authors
+```
+
+Make some commits:
+```bash
+# Commit 1 - Create AUTHORS file
+echo "# Project Authors" > AUTHORS.md
+git add AUTHORS.md
+git commit -m "Add authors file"
+
+# Commit 2 - Oops, typo!
+echo "- John Doe (john@exmaple.com)" >> AUTHORS.md
+git add AUTHORS.md
+git commit -m "Add author"
+
+# Commit 3 - Fix the typo
+echo "- John Doe (john@example.com)" >> AUTHORS.md
+git add AUTHORS.md
+git commit -m "Fix email typo"
+
+# Commit 4 - Add another author
+echo "- Jane Smith (jane@example.com)" >> AUTHORS.md
+git add AUTHORS.md
+git commit -m "Add second author"
+```
+
+**Step 2**: View the messy history
+```bash
+git log --oneline -4
+```
+
+**What to observe**: Multiple small commits that should be combined
+
+**Step 3**: Start interactive rebase
+```bash
+git rebase -i HEAD~4
+```
+
+**Step 4**: In the editor, change to:
+```
+pick a1b2c3d Add authors file
+fixup d4e5f6g Add author
+fixup h7i8j9k Fix email typo
+pick l0m1n2o Add second author
+```
+
+**Step 5**: Save and close editor
+
+**Step 6**: Verify clean history
+```bash
+git log --oneline -2
+```
+
+**Expected Result**: Only 2 commits instead of 4!
+
+#### Rebase Options Explained
+
+**Option 1: Continue Rebase After Resolving Conflicts**
+```bash
+git rebase --continue
+```
+- Used after fixing merge conflicts during rebase
+- Proceeds to next commit in the rebase
+
+**Option 2: Abort Rebase**
+```bash
+git rebase --abort
+```
+- Cancels rebase and returns to state before rebase
+- Safe escape if things go wrong
+
+**Option 3: Skip Current Commit**
+```bash
+git rebase --skip
+```
+- Skips the current commit during rebase
+- Use if the commit is no longer needed
+
+**Option 4: Rebase onto Different Branch**
+```bash
+git rebase --onto main feature-old feature-new
+```
+- Rebases `feature-new` onto `main`, removing `feature-old` commits
+- Advanced usage for complex branch management
+
+**Option 5: Autosquash**
+```bash
+# First, create fixup commit
+git commit --fixup a1b2c3d
+
+# Then rebase with autosquash
+git rebase -i --autosquash main
+```
+- Automatically arranges fixup commits next to their targets
+- Saves manual editing in interactive rebase
+
+#### Rebase vs Merge: When to Use Each
+
+**Use Rebase When:**
+- ✅ Working on a feature branch (before sharing)
+- ✅ Want a linear, clean history
+- ✅ Preparing commits for a pull request
+- ✅ Commits are only local (not pushed)
+
+**Use Merge When:**
+- ✅ Working on shared/public branches
+- ✅ Want to preserve complete history
+- ✅ Commits already pushed to remote
+- ✅ Multiple people are working on the same branch
+
+#### ⚠️ The Golden Rule of Rebase
+
+**NEVER rebase commits that have been pushed to a shared branch!**
+
+```bash
+# ❌ DANGEROUS - Don't do this!
+git checkout main
+git rebase feature-branch  # If main is shared
+
+# ✅ SAFE - Do this instead
+git checkout feature-branch
+git rebase main  # Rebase your private branch
+```
+
+**Why?** Rebasing rewrites commit history. If others have based work on those commits, their repositories will be broken.
+
+#### Handling Rebase Conflicts
+
+**Scenario**: Conflicts occur during rebase
+
+**Step 1**: Rebase and encounter conflict
+```bash
+git rebase main
+```
+
+**Output**:
+```
+CONFLICT (content): Merge conflict in AUTHORS.md
+error: could not apply a1b2c3d... Add authors file
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+```
+
+**Step 2**: View conflicted files
+```bash
+git status
+```
+
+**Step 3**: Open and resolve conflicts in your editor
+```
+<<<<<<< HEAD
+# Project Contributors
+- Alice Johnson (alice@example.com)
+=======
+# Project Authors
+- John Doe (john@example.com)
+>>>>>>> a1b2c3d (Add authors file)
+```
+
+**Step 4**: Mark as resolved
+```bash
+git add AUTHORS.md
+```
+
+**Step 5**: Continue rebase
+```bash
+git rebase --continue
+```
+
+**Step 6**: If more conflicts, repeat steps 3-5. Otherwise, rebase completes!
+
+#### Rebase Best Practices
+
+1. **Always backup before rebasing**
+   ```bash
+   git branch backup-feature-add-authors
+   git rebase main
+   ```
+
+2. **Rebase frequently**
+   - Pull and rebase regularly to avoid large conflicts
+   ```bash
+   git pull --rebase origin main
+   ```
+
+3. **Use interactive rebase before pull requests**
+   - Clean up commits
+   - Combine related changes
+   - Fix commit messages
+
+4. **Test after rebasing**
+   - Run tests to ensure nothing broke
+   - Verify functionality still works
+
+---
+
+### Exercise 4.6: GitHub CLI (Optional)
 
 **Objective**: Use GitHub CLI for command-line operations.
 
