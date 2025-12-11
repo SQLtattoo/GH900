@@ -1,5 +1,7 @@
 # Links to exercises for GH-900
 
+> ⚠️ **Important Notice**: The official curriculum link below contains the **most up-to-date exercises and content**. This page serves as a centralized reference for easy access to individual exercises, but always check the official curriculum for the latest updates and any new additions.
+
 ## Learning Paths
 
 Official curriculum: https://aka.ms/courseGH-900
